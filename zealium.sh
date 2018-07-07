@@ -140,4 +140,4 @@ masternodeprivkey=${_nodePrivateKey}
 cd Zealium/src
 zealiumd
 echo "SUCCESS! Your zealiumd has started. Your local masternode.conf entry is below..."
-echo "MN ${_nodeIpAddress}:11994 ${_nodePrivateKey} TXHASH INDEX"
+echo "MN ${_nodeIpAddress}:31090 ${_nodePrivateKey} TXHASH INDEX"
