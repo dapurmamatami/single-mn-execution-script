@@ -39,8 +39,8 @@ cd
 #_sshPortNumber=${VARIABLE:-22}
 
 # Get a new privatekey by going to console >> debug and typing smartnode genkey
-printf "Masternode GenKey: "
-read _nodePrivateKey
+#printf "Masternode GenKey: "
+#read _nodePrivateKey
 
 # The RPC node will only accept connections from your localhost
 _rpcUserName=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 12 ; echo '')
@@ -111,7 +111,7 @@ touch ~/.zealium/zealium.conf
 # Change the directory to ~/.zealium
 cd ~/.zealium/
 
-# Create the initial chaincoin.conf file
+# Create the initial zealium.conf file
 echo "rpcuser=${_rpcUserName}
 rpcpassword=${_rpcPassword}
 rpcallowip=127.0.0.1
@@ -119,7 +119,7 @@ listen=1
 server=1
 daemon=1
 masternode=1
-masternodeprivkey=${_nodePrivateKey}
+masternodeprivkey=88T2Tz6Twh6WifN9FaCNaK2gBXZcKRheWgvH16L9CrzRLapy864
 " > zealium.conf
 
 # Change the SSH port
@@ -139,5 +139,29 @@ masternodeprivkey=${_nodePrivateKey}
 
 cd Zealium/src
 zealiumd
+
+#Generate New Masternode Privkey and reconfigure zealium.conf
+_MNPRIVKEY=$(zealium-cli masternode genkey)
+zealium-cli stop
+rm ~/.zealium/zealium.conf
+
+# Change the directory to ~/.zealium
+cd ~/.zealium/
+
+# Create the FINAL zealium.conf file
+echo "rpcuser=${_rpcUserName}
+rpcpassword=${_rpcPassword}
+rpcallowip=127.0.0.1
+rpcport=31090
+listen=1
+server=1
+daemon=1
+masternode=1
+masternodeprivkey=${_MNPRIVKEY}
+" > zealium.conf
+
+cd Zealium/src
+zealiumd
+
 echo "SUCCESS! Your zealiumd has started. Your local masternode.conf entry is below..."
-echo "MN ${_nodeIpAddress}:31090 ${_nodePrivateKey} TXHASH INDEX"
+echo "MN ${_nodeIpAddress}:31090 ${_MNPRIVKEY} TXHASH INDEX"
