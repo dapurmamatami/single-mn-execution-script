@@ -50,7 +50,7 @@ sudo apt-get install unzip
 
 wget https://github.com/zealiumcoin/Zealium/releases/download/v1.0.0.0/Zealium-v1.0.0.0-linux64.tar.gz
 tar xvf Zealium-v1.0.0.0-linux64.tar.gz
-chmod -R 777 Zealium-v1.0.0.0-linux64/
+chmod -R 777 bin/
 
 # Make a new directory for zealium daemon
 mkdir ~/.zealium/
@@ -72,7 +72,7 @@ masternodeprivkey=88T2Tz6Twh6WifN9FaCNaK2gBXZcKRheWgvH16L9CrzRLapy864
 
 
 
-cd Zealium-v1.0.0.0-linux64
+cd bin/
 ./zealiumd
 sleep 20s
 #Generate New Masternode Privkey and reconfigure zealium.conf
