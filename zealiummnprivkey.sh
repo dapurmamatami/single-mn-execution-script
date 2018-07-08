@@ -2,12 +2,15 @@
 #printf "Masternode GenKey: "
 #read _nodePrivateKey
 
+cd Zealium/src
+./zealiumd
+
 #Generate New Masternode Privkey and reconfigure zealium.conf
 _MNPRIVKEY=$(zealium-cli masternode genkey)
 read _MNPRIVKEY
 zealium-cli stop
 sleep 10s
-sed -i '5d' ~/.zealium/zealium.conf
+sed -i '9d' ~/.zealium/zealium.conf
 
 # Change the directory to ~/.zealium
 cd ~/.zealium/
