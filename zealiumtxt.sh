@@ -114,7 +114,7 @@ createconf() {
 #	mnip=$(curl -s https://api.ipify.org)
 #	sudo python3 -m http.server 8000 --bind $mnip 2>/dev/null &
 #	echo "Web Server Started!  You can now access your stats page at http://$mnip:8000"
-}
+#}
 
 success() {
 	zealiumd
