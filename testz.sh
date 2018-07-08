@@ -23,3 +23,8 @@ masternodekey=$(./zealium-cli masternode genkey)
 ./zealium-cli stop
 sleep 10s
 echo -e "masternode=1\masternodeprivkey=$masternodekey" >> /root/.zealium/zealium.conf
+
+cd
+cd bin/
+./zealiumd
+echo "VPS setup is completed"
