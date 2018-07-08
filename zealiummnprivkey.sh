@@ -2,6 +2,33 @@
 #printf "Masternode GenKey: "
 #read _nodePrivateKey
 
+if [ "$(whoami)" != "root" ]; then
+  echo "Script must be run as user: root"
+  exit -1
+fi
+
+while true; do
+ if [ -d ~/.zealium ]; then
+   printf "~/.zealium/ already exists! The installer will delete this folder. Continue anyway?(Y/n)"
+   read REPLY
+   if [ ${REPLY} == "Y" ]; then
+      pID=$(ps -ef | grep zealiumd | awk '{print $2}')
+      kill ${pID}
+      rm -rf ~/.zealium/
+      break
+   else
+      if [ ${REPLY} == "n" ]; then
+        exit
+      fi
+   fi
+ else
+   break
+ fi
+done
+
+cd
+
+
 # The RPC node will only accept connections from your localhost
 _rpcUserName=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 12 ; echo '')
 
