@@ -95,6 +95,7 @@ createconf() {
         message "Wait 10 seconds for daemon to load..."
         sleep 20s
         mnpirvate=$(/root/zealium-cli masternode genkey)
+	read mnpirvate
 	/root/zealium-cli stop
 	message "wait 10 seconds for deamon to stop..."
         sleep 10s
