@@ -94,13 +94,13 @@ createconf() {
         /root/zealiumd
         message "Wait 10 seconds for daemon to load..."
         sleep 20s
-        MNPRIVKEY=$(/root/zealium-cli masternode genkey)
+        mnpirvate=$(/root/zealium-cli masternode genkey)
 	/root/zealium-cli stop
 	message "wait 10 seconds for deamon to stop..."
         sleep 10s
 	sudo rm $CONFILE
 	message "Updating zealium.conf..."
-        printf "%s\n" "rpcuser=$rpcuser" "rpcpassword=$rpcpass" "rpcallowip=127.0.0.1" "listen=0" "server=1" "daemon=1" "maxconnections=256" "rpcport=11995" "externalip=$mnip" "bind=$mnip" "masternode=1" "masternodeprivkey=$MNPRIVKEY" "masternodeaddr=$mnip:11994" > $CONFILE
+        printf "%s\n" "rpcuser=$rpcuser" "rpcpassword=$rpcpass" "rpcallowip=127.0.0.1" "listen=0" "server=1" "daemon=1" "maxconnections=256" "rpcport=11995" "externalip=$mnip" "bind=$mnip" "masternode=1" "masternodeprivkey=$mnpirvate" "masternodeaddr=$mnip:11994" > $CONFILE
 
 }
 
