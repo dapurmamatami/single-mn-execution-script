@@ -70,7 +70,7 @@ masternode=1
 masternodeprivkey=88T2Tz6Twh6WifN9FaCNaK2gBXZcKRheWgvH16L9CrzRLapy864
 " > zealium.conf
 
-
+cd
 
 cd bin/
 ./zealiumd
