@@ -1,5 +1,5 @@
 #!/bin/bash
-# installz.sh
+# zealium.sh
 # Installs smartnode on Ubuntu 16.04 LTS x64
 # ATTENTION: The anti-ddos part will disable http, https and dns ports.
 
@@ -97,7 +97,7 @@ if [ $? -ne 0 ]; then error; fi
 echo "Configuring build options..."
 ./configure 
 if [ $? -ne 0 ]; then error; fi
-echo "Building ZealiumCoin...this may take a few minutes..."
+echo "Building zealiumd...this may take about 15 minutes..."
 make
 if [ $? -ne 0 ]; then error; fi
 echo "Installing ZealiumCoin..."
