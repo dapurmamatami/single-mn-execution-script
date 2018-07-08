@@ -94,8 +94,8 @@ createconf() {
         /root/zealiumd
         message "Wait 10 seconds for daemon to load..."
         sleep 20s
-        MNPRIVKEY=$(zealium-cli masternode genkey)
-	zealium-cli stop
+        MNPRIVKEY=$(/root/zealium-cli masternode genkey)
+	/root/zealium-cli stop
 	message "wait 10 seconds for deamon to stop..."
         sleep 10s
 	sudo rm $CONFILE
