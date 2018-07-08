@@ -74,7 +74,7 @@ cd
 
 cd bin/
 ./zealiumd
-sleep 20s
+
 #Generate New Masternode Privkey and reconfigure zealium.conf
 _MNPRIVKEY=$(./zealium-cli masternode genkey)
 read _MNPRIVKEY
