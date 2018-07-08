@@ -91,7 +91,7 @@ createconf() {
 	rpcpass=$(openssl rand -base64 32)
 	printf "%s\n" "rpcuser=$rpcuser" "rpcpassword=$rpcpass" "rpcallowip=127.0.0.1" "listen=1" "server=1" "daemon=1" "maxconnections=256" "rpcport=11995" "externalip=$mnip" "bind=$mnip" "masternode=1" "masternodeprivkey=$MNPRIVKEY" "masternodeaddr=$mnip:11994" > $CONFILE
 
-        zealiumd
+        /root/zealiumd
         message "Wait 10 seconds for daemon to load..."
         sleep 20s
         MNPRIVKEY=$(zealium-cli masternode genkey)
@@ -117,7 +117,7 @@ createconf() {
 #}
 
 success() {
-	zealiumd
+	/root/zealiumd
 	message "SUCCESS! Your zealiumd has started. Masternode.conf setting below..."
 	message "MN $mnip:11994 $MNPRIVKEY TXHASH INDEX"
 	exit 0
@@ -127,7 +127,6 @@ install() {
 	prepdependencies
 	createswap
 	clonerepo
-	compile $1
 	createconf
 	success
 }
