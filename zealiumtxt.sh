@@ -73,7 +73,7 @@ clonerepo() { #TODO: add error detection
 #	message "Installing ChainCoin..."
 #	sudo make install
 #	if [ $? -ne 0 ]; then error; fi
-}
+#}
 
 createconf() {
 	#TODO: Can check for flag and skip this
